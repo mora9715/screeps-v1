@@ -44,7 +44,7 @@ let managerQueue = {
             'spawn': spawn,
             'role': role,
             'body': OFFSET[offset][role]
-        }
+        };
         for (item of Memory.spawnQueue) {
             if (JSON.stringify(creep) === JSON.stringify(item)) {
                 return 1;
@@ -120,6 +120,7 @@ let managerQueue = {
         // Queuing if something is missing
         for (element in desiredMap) {
             if (currentMap[element] < desiredMap[element] || currentMap[element] === undefined) {
+                console.log("enqueuing creep for SPAWN: ", spawn);
                 this.enqueueCreep(spawn, element, offset);
             }
         }

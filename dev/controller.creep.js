@@ -17,11 +17,12 @@ let roleMapper = {
     'builder': roleBuilder,
     'upgrader': roleUpgrader,
     'repairer': roleRepairer
-}
+};
 
 var controllerCreep = {
     run: function (spawn) {
         // Memory cleanup:
+        Memory.spawnQueue = [];
         for(var i in Memory.creeps) {
             if (!Game.creeps[i]) {
                 delete Memory.creeps[i];

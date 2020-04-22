@@ -1,6 +1,8 @@
+let Creep = require('role.creep');
+
 var roleHarvester = {
     run: function (spawn, creep) {
-        if (creep.store.getFreeCapacity() > 0) {
+        if (!Creep.full(creep)) {
             var source = creep.pos.findClosestByPath(FIND_SOURCES);
             if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source, {visualizePathStyle: {stroke: '#ffffff'}});
